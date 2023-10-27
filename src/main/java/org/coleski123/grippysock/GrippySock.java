@@ -22,7 +22,6 @@ public final class GrippySock extends JavaPlugin {
         this.saveDefaultConfig();
         config = getConfig(); // Load the configuration
 
-
         // Plugin startup logic
         sendConsoleMessage(ChatColor.GREEN + "TrollSounds has been enabled!");
 

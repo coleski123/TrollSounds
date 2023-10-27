@@ -6,9 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Sounds {
-
     private final GrippySock plugin;
-
     public Sounds(GrippySock plugin) {
         this.plugin = plugin;
     }
