@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TrollSounds:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrollSounds_jar</output-path>
+    <root id="archive" name="TrollSounds.jar">
+      <element id="module-output" name="TrollSounds" />
+    </root>
+  </artifact>
+</component>

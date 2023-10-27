@@ -1,0 +1,9 @@
+Prefix: "&e[&5TrollSounds&e]"
+Options:
+  PluginSounds: true
+ChatMessages:
+  PluginCommandFail: "&4You do not have permission to use this command."
+  SoundPlayed: "&2Sound {SOUND} played!"
+  PlayerNotFound: "&4Player {PLAYER} not found!"
+  SoundNameFail: "&eInvalid sound name. Use '/trollsounds list' To see available sounds."
+  ReloadConfig: "&2The config has been reloaded!"
