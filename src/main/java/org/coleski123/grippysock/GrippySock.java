@@ -28,11 +28,11 @@ public final class GrippySock extends JavaPlugin {
         chatMessages = new ChatMessages(this);
         playSound = new Sounds(this);
 
-        new UpdateChecker(this, 111314).getVersion(version -> {
+        new UpdateChecker(this, 113264).getVersion(version -> {
             if (this.getDescription().getVersion().equals(version)) {
                 sendConsoleMessage("&2No new versions available.");
             } else {
-                sendConsoleMessage("&cA new version is now available! Download: NONE");
+                sendConsoleMessage("&cA new version is now available! Download: https://www.spigotmc.org/resources/trollsounds.113264/");
             }
         });
     }
