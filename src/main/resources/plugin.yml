@@ -1,5 +1,5 @@
 name: TrollSounds
-version: 1.0
+version: 1.1
 main: org.coleski123.grippysock.GrippySock
 api-version: '1.20'
 description: A paper/spigot plugin to troll players using sounds!

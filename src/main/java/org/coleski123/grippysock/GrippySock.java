@@ -25,6 +25,9 @@ public final class GrippySock extends JavaPlugin {
         // Plugin startup logic
         sendConsoleMessage(ChatColor.GREEN + "TrollSounds has been enabled!");
 
+        //Register the tab completer class
+        getCommand("trollsounds").setTabCompleter(new TrollSoundsTabCompleter());
+
         chatMessages = new ChatMessages(this);
         playSound = new Sounds(this);
 

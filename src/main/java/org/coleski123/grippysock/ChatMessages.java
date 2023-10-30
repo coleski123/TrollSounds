@@ -3,6 +3,10 @@ package org.coleski123.grippysock;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
 
 public class ChatMessages {
     private final GrippySock plugin;
@@ -51,23 +55,44 @@ public class ChatMessages {
         player.sendMessage(pluginPrefix + " " + SoundNameFailMsg);
     }
 
-    public void SoundsList(CommandSender sender){
-        Player player = (Player) sender;
-        player.sendMessage(ChatColor.GREEN + "Available sounds:");
-        player.sendMessage(ChatColor.YELLOW + "creeperhiss");
-        player.sendMessage(ChatColor.YELLOW + "zombie");
-        player.sendMessage(ChatColor.YELLOW + "enderman");
-        player.sendMessage(ChatColor.YELLOW + "lightning");
-        player.sendMessage(ChatColor.YELLOW + "horn1");
-        player.sendMessage(ChatColor.YELLOW + "horn2");
-        player.sendMessage(ChatColor.YELLOW + "horn3");
-        player.sendMessage(ChatColor.YELLOW + "horn4");
-        player.sendMessage(ChatColor.YELLOW + "cave");
-        player.sendMessage(ChatColor.YELLOW + "damage");
-        player.sendMessage(ChatColor.YELLOW + "door");
-        player.sendMessage(ChatColor.YELLOW + "lever");
-        player.sendMessage(ChatColor.YELLOW + "piston");
-        player.sendMessage(ChatColor.YELLOW + "bell");
+    public void SoundsList(CommandSender sender) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            player.sendMessage(ChatColor.GREEN + "Available sounds:");
+
+            // Create a component builder
+            TextComponent clickableList = new TextComponent("");
+
+            // Add the sound options as clickable text
+            addClickableSoundOption(clickableList, "creeperhiss", "Cick to copy!", "creeperhiss");
+            addClickableSoundOption(clickableList, "zombie", "Cick to copy!", "zombie");
+            addClickableSoundOption(clickableList, "enderman", "Cick to copy!", "enderman");
+            addClickableSoundOption(clickableList, "lightning", "Cick to copy!", "lightning");
+            addClickableSoundOption(clickableList, "horn1", "Cick to copy!", "horn1");
+            addClickableSoundOption(clickableList, "horn2", "Cick to copy!", "horn2");
+            addClickableSoundOption(clickableList, "horn3", "Cick to copy!", "horn3");
+            addClickableSoundOption(clickableList, "horn4", "Cick to copy!", "horn4");
+            addClickableSoundOption(clickableList, "cave", "Cick to copy!", "cave");
+            addClickableSoundOption(clickableList, "damage", "Cick to copy!", "damage");
+            addClickableSoundOption(clickableList, "door", "Cick to copy!", "door");
+            addClickableSoundOption(clickableList, "lever", "Cick to copy!", "lever");
+            addClickableSoundOption(clickableList, "piston", "Cick to copy!", "piston");
+            addClickableSoundOption(clickableList, "bell", "Cick to copy!", "bell");
+
+            // Send the clickable list to the player
+            player.spigot().sendMessage(clickableList);
+        }
+    }
+
+    private void addClickableSoundOption(TextComponent baseComponent, String soundName, String hoverText, String copyText) {
+        TextComponent option = new TextComponent(ChatColor.YELLOW + soundName);
+        option.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, copyText));
+        option.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(hoverText).create()));
+
+        // Add a comma and space after each option for spacing
+        TextComponent comma = new TextComponent(", ");
+        baseComponent.addExtra(option);
+        baseComponent.addExtra(comma);
     }
 
     public void ReloadConfigMessage(CommandSender sender){
