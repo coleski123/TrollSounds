@@ -38,6 +38,12 @@ public class TrollSoundsTabCompleter implements TabCompleter {
             completions.add("lever");
             completions.add("piston");
             completions.add("bell");
+            completions.add("villager");
+            completions.add("pig");
+            completions.add("cow");
+            completions.add("ghastcry");
+            completions.add("silverfish");
+            completions.add("anvil");
             // Add more sound names here...
         }
 

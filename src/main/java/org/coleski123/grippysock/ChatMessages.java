@@ -78,6 +78,12 @@ public class ChatMessages {
             addClickableSoundOption(clickableList, "lever", "Cick to copy!", "lever");
             addClickableSoundOption(clickableList, "piston", "Cick to copy!", "piston");
             addClickableSoundOption(clickableList, "bell", "Cick to copy!", "bell");
+            addClickableSoundOption(clickableList, "villager", "Cick to copy!", "bell");
+            addClickableSoundOption(clickableList, "pig", "Cick to copy!", "bell");
+            addClickableSoundOption(clickableList, "cow", "Cick to copy!", "bell");
+            addClickableSoundOption(clickableList, "ghastcry", "Cick to copy!", "bell");
+            addClickableSoundOption(clickableList, "silverfish", "Cick to copy!", "bell");
+            addClickableSoundOption(clickableList, "anvil", "Cick to copy!", "bell");
 
             // Send the clickable list to the player
             player.spigot().sendMessage(clickableList);

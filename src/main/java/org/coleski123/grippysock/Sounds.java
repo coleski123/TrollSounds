@@ -41,6 +41,18 @@ public class Sounds {
                 return Sound.BLOCK_PISTON_EXTEND;
             case "bell":
                 return Sound.BLOCK_BELL_RESONATE;
+            case "villager": //HERE
+                return Sound.ENTITY_VILLAGER_AMBIENT;
+            case "pig":
+                return Sound.ENTITY_PIG_AMBIENT;
+            case "cow":
+                return Sound.ENTITY_COW_AMBIENT;
+            case "ghastcry":
+                return Sound.ENTITY_GHAST_AMBIENT;
+            case "silverfish":
+                return Sound.ENTITY_SILVERFISH_AMBIENT;
+            case "anvil":
+                return Sound.BLOCK_ANVIL_PLACE;
         }
         return null;
     }
@@ -74,6 +86,18 @@ public class Sounds {
             case "piston":
                 return true;
             case "bell":
+                return true;
+            case "villager":
+                return true;
+            case "pig":
+                return true;
+            case "cow":
+                return true;
+            case "ghastcry":
+                return true;
+            case "silverfish":
+                return true;
+            case "anvil":
                 return true;
         }
         return false;
