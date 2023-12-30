@@ -11,6 +11,10 @@ public class Sounds {
         this.plugin = plugin;
     }
 
+    public boolean PluginSounds(){
+        return plugin.getConfig().getBoolean("Options.PluginSounds");
+    }
+
     public Sound getSound(String soundName){
         switch (soundName) {
             case "creeperhiss":
@@ -114,8 +118,7 @@ public class Sounds {
 
     public void SuccessSound(CommandSender sender) {
         Player player = (Player) sender;
-        boolean pluginSounds = plugin.getConfig().getBoolean("Options.PluginSounds");
-        if (pluginSounds) {
+        if (PluginSounds()) {
             Sound sound = Sound.BLOCK_NOTE_BLOCK_BIT;
             float volume = 0.10f;
             float pitch = 2.0f;
@@ -125,8 +128,7 @@ public class Sounds {
 
     public void FailureSound(CommandSender sender) {
         Player player = (Player) sender;
-        boolean pluginSounds = plugin.getConfig().getBoolean("Options.PluginSounds");
-        if (pluginSounds) {
+        if (PluginSounds()) {
             Sound sound = Sound.BLOCK_NOTE_BLOCK_BIT;
             float volume = 0.10f;
             float pitch = 1.0f;

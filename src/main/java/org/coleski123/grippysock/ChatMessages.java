@@ -15,13 +15,16 @@ public class ChatMessages {
         this.plugin = plugin;
     }
 
+    public String Prefix(){
+        return plugin.config.getString("Prefix").replace('&', '§');
+    }
+
     public void OnlyPlyFail(CommandSender sender){
         sender.sendMessage("Only players can use this command.");
     }
 
     public void PluginCmdUsage(CommandSender sender){
-        String pluginPrefix = plugin.config.getString("Prefix").replace('&', '§');
-        sender.sendMessage(pluginPrefix + " " + ChatColor.YELLOW + "Usage: /trollsounds <playername> <soundname>");
+        sender.sendMessage(Prefix() + " " + ChatColor.YELLOW + "Usage: /trollsounds <playername> <soundname>");
     }
 
     public void PluginCmdFail(CommandSender sender){
@@ -32,27 +35,24 @@ public class ChatMessages {
 
     public void SoundPlayed(CommandSender sender, String soundName){
         Player player = (Player) sender;
-        String pluginPrefix = plugin.config.getString("Prefix").replace('&', '§');
         String SoundPlayedMessage = plugin.config.getString("ChatMessages.SoundPlayed")
                 .replace('&', '§')
                 .replace("{SOUND}", soundName);
-        player.sendMessage(pluginPrefix + " " + SoundPlayedMessage);
+        player.sendMessage(Prefix() + " " + SoundPlayedMessage);
     }
 
     public void PlyNotFound(CommandSender sender, String playerName){
         Player player = (Player) sender;
-        String pluginPrefix = plugin.config.getString("Prefix").replace('&', '§');
         String PlyNotFoundMsg = plugin.config.getString("ChatMessages.PlayerNotFound")
                 .replace('&', '§')
                 .replace("{PLAYER}", playerName);
-        player.sendMessage(pluginPrefix + " " + PlyNotFoundMsg);
+        player.sendMessage(Prefix() + " " + PlyNotFoundMsg);
     }
 
     public void SoundNameFail(CommandSender sender){
         Player player = (Player) sender;
-        String pluginPrefix = plugin.config.getString("Prefix").replace('&', '§');
         String SoundNameFailMsg = plugin.config.getString("ChatMessages.SoundNameFail").replace('&', '§');
-        player.sendMessage(pluginPrefix + " " + SoundNameFailMsg);
+        player.sendMessage(Prefix() + " " + SoundNameFailMsg);
     }
 
     public void SoundsList(CommandSender sender) {
@@ -103,8 +103,7 @@ public class ChatMessages {
 
     public void ReloadConfigMessage(CommandSender sender){
         Player player = (Player) sender;
-        String pluginPrefix = plugin.config.getString("Prefix").replace('&', '§');
         String ReloadConfigMsg = plugin.config.getString("ChatMessages.ReloadConfig").replace('&', '§');
-        player.sendMessage(pluginPrefix + " " + ReloadConfigMsg);
+        player.sendMessage(Prefix() + " " + ReloadConfigMsg);
     }
 }

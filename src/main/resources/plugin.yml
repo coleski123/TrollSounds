@@ -1,6 +1,6 @@
 name: TrollSounds
 author: Coleski123
-version: 1.1
+version: 1.2
 main: org.coleski123.grippysock.GrippySock
 api-version: '1.20'
 description: A paper/spigot plugin to troll players using sounds!
@@ -8,6 +8,7 @@ commands:
   trollsounds:
     description: Plays a sound to tweak players out.
     usage: /trollsounds <playername> <soundname>
+    aliases: ts
 permissions:
   trollsounds.playsounds:
     description: Allows the usage of the /trollsounds command.
