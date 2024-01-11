@@ -44,6 +44,12 @@ public class TrollSoundsTabCompleter implements TabCompleter {
             completions.add("ghastcry");
             completions.add("silverfish");
             completions.add("anvil");
+            completions.add("bat");
+            completions.add("allay");
+            completions.add("amethyst");
+            completions.add("vex");
+            completions.add("guardian");
+            completions.add("blaze");
             // Add more sound names here...
         }
 

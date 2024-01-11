@@ -6,7 +6,7 @@
 
     <groupId>org.coleski123</groupId>
     <artifactId>TrollSounds</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>jar</packaging>
 
     <name>TrollSounds</name>

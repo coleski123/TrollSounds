@@ -2,21 +2,41 @@ package org.coleski123.grippysock;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 
+import java.io.File;
+
 public class ChatMessages {
     private final GrippySock plugin;
+    private FileConfiguration messagesConfig;
 
     public ChatMessages(GrippySock plugin) {
         this.plugin = plugin;
+        this.messagesConfig = loadMessagesConfig();
+    }
+
+    private FileConfiguration loadMessagesConfig() {
+        File messagesFile = new File(plugin.getDataFolder(), "messages.yml");
+
+        if (!messagesFile.exists()) {
+            plugin.saveResource("messages.yml", false);
+        }
+
+        return YamlConfiguration.loadConfiguration(messagesFile);
+    }
+
+    public void reloadMessagesConfig() {
+        this.messagesConfig = loadMessagesConfig();
     }
 
     public String Prefix(){
-        return plugin.config.getString("Prefix").replace('&', '§');
+        return messagesConfig.getString("Prefix").replace('&', '§');
     }
 
     public void OnlyPlyFail(CommandSender sender){
@@ -29,21 +49,21 @@ public class ChatMessages {
 
     public void PluginCmdFail(CommandSender sender){
         Player player = (Player) sender;
-        String PluginCmdFailMsg = plugin.config.getString("ChatMessages.PluginCommandFail").replace('&', '§');
+        String PluginCmdFailMsg = messagesConfig.getString("ChatMessages.PluginCommandFail").replace('&', '§');
         player.sendMessage(PluginCmdFailMsg);
     }
 
     public void SoundPlayed(CommandSender sender, String soundName){
         Player player = (Player) sender;
-        String SoundPlayedMessage = plugin.config.getString("ChatMessages.SoundPlayed")
+        String SoundPlayedMessage = messagesConfig.getString("ChatMessages.SoundPlayed")
                 .replace('&', '§')
-                .replace("{SOUND}", soundName);
+                .replace("{SOUND}", soundName.substring(0,1).toUpperCase() + soundName.substring(1));
         player.sendMessage(Prefix() + " " + SoundPlayedMessage);
     }
 
     public void PlyNotFound(CommandSender sender, String playerName){
         Player player = (Player) sender;
-        String PlyNotFoundMsg = plugin.config.getString("ChatMessages.PlayerNotFound")
+        String PlyNotFoundMsg = messagesConfig.getString("ChatMessages.PlayerNotFound")
                 .replace('&', '§')
                 .replace("{PLAYER}", playerName);
         player.sendMessage(Prefix() + " " + PlyNotFoundMsg);
@@ -51,7 +71,7 @@ public class ChatMessages {
 
     public void SoundNameFail(CommandSender sender){
         Player player = (Player) sender;
-        String SoundNameFailMsg = plugin.config.getString("ChatMessages.SoundNameFail").replace('&', '§');
+        String SoundNameFailMsg = messagesConfig.getString("ChatMessages.SoundNameFail").replace('&', '§');
         player.sendMessage(Prefix() + " " + SoundNameFailMsg);
     }
 
@@ -103,7 +123,7 @@ public class ChatMessages {
 
     public void ReloadConfigMessage(CommandSender sender){
         Player player = (Player) sender;
-        String ReloadConfigMsg = plugin.config.getString("ChatMessages.ReloadConfig").replace('&', '§');
+        String ReloadConfigMsg = messagesConfig.getString("ChatMessages.ReloadConfig").replace('&', '§');
         player.sendMessage(Prefix() + " " + ReloadConfigMsg);
     }
 }

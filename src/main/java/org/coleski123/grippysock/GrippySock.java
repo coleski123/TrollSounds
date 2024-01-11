@@ -63,6 +63,7 @@ public final class GrippySock extends JavaPlugin {
                 reloadConfig();
                 config = getConfig();
                 chatMessages.ReloadConfigMessage(sender);
+                chatMessages.reloadMessagesConfig();
                 playSound.SuccessSound(sender);
             } else {
                 chatMessages.PluginCmdFail(sender);
